@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Mukta&display=swap");
+
+/* Global styles */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#container {
+  height: 90vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 300px auto;
+}
+body {
+  font-family: "Mukta", sans-serif;
+}
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+/* title */
+#title {
+  height: 10vh;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+#icon {
+  background: url("./todo.png") no-repeat;
+  background-size: contain;
+  height: 50px;
+  width: 40px;
+  transform: translateY(5px);
+}
+#user {
+  cursor: pointer;
+}
+/* project */
+#projectCont {
+  background-color: lightblue;
+  padding: 10px;
+}
+#openProjectForm {
+  font-size: 80px;
+  position: absolute;
+  top: 80px;
+  left: 10px;
+  cursor: pointer;
+  color: whitesmoke;
+  text-shadow: 1px 1px 3px gray;
+  line-height: 42px;
+}
+.projectForm {
+  margin-top: 60px;
+}
+.projectForm input {
+  padding: 3px;
+  font-size: 16px;
+}
+.addProjectBtn,
+.cancelProjectBtn {
+  margin-top: 3px;
+  margin-right: 3px;
+  font-size: 16px;
+  padding: 3px;
+}
+.projectList {
+  position: absolute;
+  top: 205px;
+  font-size: 24px;
+}
+/* todo */
+#todoCont {
+  background-color: lightslategray;
+}
