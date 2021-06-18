@@ -4,12 +4,15 @@ let projectList = document.createElement("ul");
 projectList.classList.add("projectList");
 
 let projects = [];
+export let selectedProject;
 
 const porjectListFunc = function () {
   projectList.innerHTML = "";
 
   projects.forEach((project) => {
-    projectList.innerHTML += `<li>${project}</li>`;
+    if (project == selectedProject)
+      projectList.innerHTML += `<li id="projectItem" style="border-color: white; background-color: gold">${project}</li>`;
+    else projectList.innerHTML += `<li id="projectItem">${project}</li>`;
   });
 };
 
@@ -43,7 +46,10 @@ const projectForm = (function () {
   projectCont.addEventListener("click", (e) => {
     e.preventDefault();
 
-    if (projectForm.projectTitle.value == "") {
+    if (
+      projectForm.projectTitle.value == "" ||
+      projects.includes(projectForm.projectTitle.value)
+    ) {
       return;
     } else if (e.target.textContent == "ADD") {
       projects.push(projectForm.projectTitle.value);
@@ -64,3 +70,22 @@ const projectForm = (function () {
 })();
 
 projectCont.append(projectList);
+
+(function () {
+  projectList.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    projects.forEach((project) => {
+      if (project == e.target.textContent) {
+        document.querySelectorAll("#projectItem").forEach((project) => {
+          project.style.borderColor = "gray";
+          project.style.backgroundColor = "goldenrod";
+        });
+        e.target.style.borderColor = "white";
+        e.target.style.backgroundColor = "gold";
+
+        selectedProject = e.target.textContent;
+      }
+    });
+  });
+})();
