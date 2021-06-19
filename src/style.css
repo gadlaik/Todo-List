@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Mukta&display=swap");
 
 /* Global styles */
+
 *,
 *::before,
 *::after {
@@ -9,23 +10,19 @@
   box-sizing: border-box;
 }
 #container {
-  height: 90vh;
-  width: 100vw;
+  height: calc(100vh - 75px);
+  width: 100%;
   display: grid;
   grid-template-columns: 300px auto;
 }
 body {
   font-family: "Mukta", sans-serif;
 }
-.hide {
-  display: none;
-}
-.show {
-  display: block;
-}
+
 /* title */
+
 #title {
-  height: 10vh;
+  height: 75px;
   padding: 10px 20px;
   display: flex;
   flex-direction: row;
@@ -42,23 +39,26 @@ body {
 #user {
   cursor: pointer;
 }
+
 /* project */
+
 #projectCont {
   background-color: lightblue;
   padding: 10px;
 }
-#openProjectForm {
+#openProjectForm,
+#openTodoForm {
   font-size: 80px;
-  position: absolute;
-  top: 80px;
-  left: 10px;
+  position: relative;
   cursor: pointer;
   color: whitesmoke;
   text-shadow: 1px 1px 3px gray;
   line-height: 42px;
+  width: 45px;
 }
-.projectForm {
-  margin-top: 60px;
+#openProjectForm:hover,
+#openTodoForm:hover {
+  text-shadow: 1px 1px 1px black;
 }
 .projectForm input {
   padding: 3px;
@@ -85,11 +85,45 @@ body {
   border-radius: 3px;
   background-color: goldenrod;
   max-width: 275px;
+  width: fit-content;
+  overflow: hidden;
 }
 #projectItem:hover {
   background-color: gold;
 }
+
 /* todo */
+
 #todoCont {
   background-color: lightslategray;
+  padding: 10px;
+}
+#openTodoForm {
+  text-shadow: 1px 1px 3px yellow;
+}
+.todoForm {
+  display: flex;
+  flex-direction: column;
+  width: 330px;
+  gap: 10px;
+}
+.todoForm > input,
+.todoForm > textarea {
+  font-size: 16px;
+  padding: 3px;
+}
+label,
+input[type="radio"] {
+  cursor: pointer;
+  margin-right: 3px;
+  text-shadow: 1px 1px 6px whitesmoke;
+}
+
+/* global */
+
+.hide {
+  display: none;
+}
+.show {
+  display: block;
 }
