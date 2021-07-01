@@ -8,4 +8,164 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Mukta";
+}
+
+/* title */
+
+#pageTitle {
+  background-color: blanchedalmond;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 15px;
+}
+#logo {
+  background: url("./todo.png") no-repeat;
+  background-size: contain;
+  height: 50px;
+  width: 50px;
+}
+#user {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* container */
+
+#container {
+  height: calc(100vh - 80px);
+  display: grid;
+  grid-template-columns: 330px auto;
+}
+
+/* project container */
+
+#proCont {
+  background-color: lightblue;
+  padding: 10px;
+}
+#proForm {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+}
+#proForm > input[type="text"] {
+  font-size: 16px;
+  width: 230px;
+  padding: 3px 10px;
+  border-radius: 3px;
+  border: none;
+}
+#addProBtn,
+#delProBtn {
+  background: url("/src/X.png") no-repeat;
+  background-size: contain;
+  height: 33px;
+  width: 42px;
+  cursor: pointer;
+}
+#addProBtn {
+  background: url("./success-green-check-mark.png") no-repeat;
+  background-size: contain;
+  margin-left: 5px;
+  border: none;
+}
+#addProBtn:hover,
+#delProBtn:hover {
+  transform: scale(1.05);
+}
+#proList {
+  margin-top: 25px;
+}
+#proItem {
+  font-size: 24px;
+  border: 1px solid gray;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  padding: 0px 8px;
+  background-color: whitesmoke;
+  width: 270px;
+}
+#proItem:hover {
+  background-color: yellow;
+  cursor: pointer;
+}
+#delProItemBtn {
+  background: url("/src/X.png") no-repeat;
+  background-size: contain;
+  height: 40px;
+  width: 40px;
+  position: relative;
+  left: 50px;
+  float: right;
+}
+#delProItemBtn:hover {
+  transform: scale(1.05);
+}
+/* todo container */
+
+#todoCont {
+  background-color: rgb(65, 180, 225);
+  padding: 10px;
+}
+#todoForm {
+  display: flex;
+  flex-direction: column;
+  width: 330px;
+  gap: 8px;
+  margin: auto;
+}
+label,
+input[type="radio"] {
+  cursor: pointer;
+  font-size: 20px;
+  margin-right: 5px;
+}
+#todoForm > input,
+textarea {
+  padding: 3px;
+  font-size: 16px;
+  outline: none;
+}
+#prio {
+  text-align: center;
+}
+#addCancel {
+  display: flex;
+  gap: 3px;
+  justify-content: center;
+}
+#addCancel > input {
+  font-size: 16px;
+  padding: 0px 10px;
+  cursor: pointer;
+}
+#addCancel > div {
+  border: 1px solid black;
+  border-radius: 3px;
+  font-size: 16px;
+  padding: 0px 10px;
+  background-color: rgb(255, 99, 42);
+  cursor: pointer;
+}
+#addCancel > div:hover {
+  background-color: orangered;
+}
+#toggleTodoForm {
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 5px 15px;
+  width: 165px;
+  margin: 5px auto 15px auto;
+  cursor: pointer;
+  background-color: limegreen;
+}
+
+/* hide */
+
+.hide {
+  display: none !important;
 }
