@@ -87,3 +87,10 @@ const todoCont = document.querySelector("#todoCont");
 
   todoCont.append(todoForm);
 })();
+
+(function () {
+  const todoList = document.createElement("ul");
+  todoList.setAttribute("id", "todoList");
+
+  todoCont.append(todoList);
+})();

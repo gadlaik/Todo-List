@@ -1,3 +1,5 @@
+import { viewTodoFunc } from "./viewTodos";
+
 let projects = [];
 if (JSON.parse(localStorage.getItem("projects")) != null)
   projects = JSON.parse(localStorage.getItem("projects"));
@@ -81,6 +83,13 @@ if (selectedProject != null) {
   proList.addEventListener("click", (e) => {
     if (e.target.parentElement.getAttribute("id") == "proItem") {
       e.target.parentElement.remove();
+
+      let todos = JSON.parse(localStorage.getItem("todos"));
+      todos = todos.filter((todo) => {
+        todo == e.target.parentElement.textContent;
+      });
+      viewTodoFunc(selectedProject);
+      localStorage.setItem("todos", JSON.stringify(todos));
       projects = projects.filter((item) => {
         if (item != e.target.parentElement.textContent) return item;
       });
@@ -114,8 +123,10 @@ if (selectedProject != null) {
       });
       e.target.style.backgroundColor = "gold";
       selectedProject = e.target.textContent;
+      viewTodoFunc(selectedProject);
       localStorage.setItem("selectedProject", JSON.stringify(selectedProject));
     }
+    if (selectedProject == null) viewTodoFunc(selectedProject);
   });
 })();
 
@@ -125,4 +136,4 @@ if (selectedProject != null) {
   });
 })();
 
-export { projects, selectedProject };
+export { selectedProject };
